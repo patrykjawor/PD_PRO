@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python GUI Application Documentation &#8212; PD_PRO_JACH_JAWORSKI 1.0 - dokumentacja</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" />
+    <link rel="prev" title="Flask server documentation" href="main.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="python-gui-application-documentation">
+<h1>Python GUI Application Documentation<a class="headerlink" href="#python-gui-application-documentation" title="Permalink to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<p>This documentation provides an overview of a Python application built using the <cite>tkinter</cite> library and other modules. The application implements a client-side interface for a file storage system with user authentication and encryption features.</p>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<p>The Python application includes the following features:</p>
+<ul class="simple">
+<li><p>User registration and login: Users can register with a username, email, and password, and subsequently log in using their credentials.</p></li>
+<li><p>Two-factor authentication (2FA): After successful login, users are prompted to authorize their access using a one-time password (OTP) received via email.</p></li>
+<li><p>File management: Users can upload and download files to/from the file storage system.</p></li>
+<li><p>File encryption: The application encrypts uploaded files using the <cite>cryptography</cite> module and a generated encryption key.</p></li>
+<li><p>File integrity check: The application calculates the SHA256 hash of uploaded files for integrity verification.</p></li>
+</ul>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
+<p>The application relies on the following Python modules:</p>
+<ul class="simple">
+<li><p><cite>tkinter</cite>: A standard GUI library for creating graphical user interfaces.</p></li>
+<li><p><cite>requests</cite>: A module for making HTTP requests and handling responses.</p></li>
+<li><p><cite>hashlib</cite>: A module for working with cryptographic hash functions.</p></li>
+<li><p><cite>os.path</cite>: A module for manipulating file paths.</p></li>
+<li><p><cite>tkinter.messagebox</cite>: A module for displaying message boxes in the GUI.</p></li>
+<li><p><cite>tkinter.filedialog</cite>: A module for opening file dialogs in the GUI.</p></li>
+<li><p><cite>cryptography.fernet</cite>: A module for symmetric encryption using the Fernet algorithm.</p></li>
+<li><p><cite>os</cite>: A module for interacting with the operating system.</p></li>
+<li><p><cite>pickle</cite>: A module for serializing and deserializing Python objects.</p></li>
+<li><p><cite>ttkthemes</cite>: A module for applying themes to the <cite>tkinter</cite> GUI.</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
+<p>To run the application, execute the main Python script. The application will launch a GUI interface with options to register, log in, and perform file operations.</p>
+<p>For user registration, enter a username, email, and password. Click the „Register” button to send the registration request to the server.</p>
+<p>For user login, enter a username or email and password. Click the „Login” button to send the login request to the server. If successful, the application will prompt for the OTP code received via email.</p>
+<p>After successful login, the application displays a list of files available for the logged-in user. Users can upload and download files using the corresponding buttons. The application encrypts uploaded files and verifies their integrity during download using the SHA256 hash.</p>
+<p>To log out, click the „Logout” button.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">¶</a></h2>
+<p>The application has the following limitations:</p>
+<ul class="simple">
+<li><p>The application requires a CA certificate file (<cite>ca.crt</cite>) for SSL/TLS verification.</p></li>
+<li><p>The application generates and stores an encryption key in a file (<cite>key_file.key</cite>) on the local machine. The key is required for encrypting and decrypting files.</p></li>
+<li><p>The application uses the <cite>ttkthemes</cite> module to apply a specific theme („arc”) to the GUI. Ensure the module is installed for proper visual styling.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">¶</a></h2>
+<p>The Python application provides a user-friendly interface for a file storage system with user authentication, encryption, and integrity checks. The provided code can be further extended and integrated with server-side components to create a complete file storage solution.</p>
+<p>For more details on the application’s code and implementation, refer to the provided source code.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PD_PRO_JACH_JAWORSKI</a></h1>
+
+
+
+
+
+
+
+
+<h3>Nawigacja</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Flask server documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python GUI Application Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="main.html" title="poprzedni rozdział">Flask server documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Szybkie wyszukiwanie</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Szukaj" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Patryk Jaworski, Jakub Jach.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/client.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

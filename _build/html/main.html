@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Flask server documentation &#8212; PD_PRO_JACH_JAWORSKI 1.0 - dokumentacja</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" />
+    <link rel="next" title="Python GUI Application Documentation" href="client.html" />
+    <link rel="prev" title="Welcome to SYSTEM DO WYMIANY PLIKÓW Z WYKORZYSTANIEM JĘZYKA PYTHON’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="flask-server-documentation">
+<h1>Flask server documentation<a class="headerlink" href="#flask-server-documentation" title="Permalink to this heading">¶</a></h1>
+<p>This documentation provides an overview and reference for the Flask server application.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h2>
+<p>To install the Flask application, follow these steps:</p>
+<ol class="arabic">
+<li><p>Clone the repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone &lt;repository-url&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Install the required dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -r requirements.txt
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<p>The Flask application can be configured using the following environment variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SECRET_KEY</span></code>: Secret key used for session encryption.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SESSION_PERMANENT</span></code>: Whether the session should be permanent.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SESSION_TYPE</span></code>: Type of session storage.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UPLOADS</span></code>: Path to the directory where files will be uploaded.</p></li>
+</ul>
+</section>
+<section id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this heading">¶</a></h2>
+<p>The Flask application uses an SQLite database for user and file management. The database file is <code class="docutils literal notranslate"><span class="pre">users.db</span></code>, and the schema is defined in <code class="docutils literal notranslate"><span class="pre">schema.sql</span></code>. To initialize the database, run the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>flask<span class="w"> </span>init-db
+</pre></div>
+</div>
+</section>
+<section id="routes">
+<h2>Routes<a class="headerlink" href="#routes" title="Permalink to this heading">¶</a></h2>
+<p>The Flask application exposes the following routes:</p>
+<section id="post-register">
+<h3>POST /register<a class="headerlink" href="#post-register" title="Permalink to this heading">¶</a></h3>
+<p>Registers a new user with the provided username, email, and password.</p>
+<p>Request body parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">username</span></code>: User’s username.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code>: User’s email address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code>: User’s password.</p></li>
+</ul>
+</section>
+<section id="post-login">
+<h3>POST /login<a class="headerlink" href="#post-login" title="Permalink to this heading">¶</a></h3>
+<p>Logs in a user with the provided username or email and password.</p>
+<p>Request body parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">username</span></code> or <code class="docutils literal notranslate"><span class="pre">email</span></code>: User’s username or email address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code>: User’s password.</p></li>
+</ul>
+</section>
+<section id="get-logged">
+<h3>GET /logged<a class="headerlink" href="#get-logged" title="Permalink to this heading">¶</a></h3>
+<p>Checks if a user is logged in.</p>
+<p>Returns a JSON response indicating whether the user is logged in.</p>
+</section>
+<section id="post-logout">
+<h3>POST /logout<a class="headerlink" href="#post-logout" title="Permalink to this heading">¶</a></h3>
+<p>Logs out the currently logged-in user.</p>
+</section>
+<section id="post-2fa">
+<h3>POST /2FA<a class="headerlink" href="#post-2fa" title="Permalink to this heading">¶</a></h3>
+<p>Enables two-factor authentication for the specified user.</p>
+<p>Request body parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">username</span></code>: User’s username.</p></li>
+</ul>
+<p>Sends an email with a PyOTP code to the user’s email address.</p>
+</section>
+<section id="post-validate">
+<h3>POST /validate<a class="headerlink" href="#post-validate" title="Permalink to this heading">¶</a></h3>
+<p>Validates a PyOTP code for two-factor authentication.</p>
+<p>Request body parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">otp_key</span></code>: The PyOTP code to validate.</p></li>
+</ul>
+</section>
+<section id="get-files">
+<h3>GET /files<a class="headerlink" href="#get-files" title="Permalink to this heading">¶</a></h3>
+<p>Lists all files uploaded by the currently logged-in user.</p>
+<p>Returns a JSON response with information about each file, including the filename and checksum.</p>
+</section>
+<section id="post-upload">
+<h3>POST /upload<a class="headerlink" href="#post-upload" title="Permalink to this heading">¶</a></h3>
+<p>Uploads a file for the currently logged-in user.</p>
+<p>Request parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code>: The file to upload.</p></li>
+</ul>
+<p>Query parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">checksum</span></code>: The checksum metadata for the file.</p></li>
+</ul>
+</section>
+<section id="get-getuser">
+<h3>GET /getuser<a class="headerlink" href="#get-getuser" title="Permalink to this heading">¶</a></h3>
+<p>Retrieves the username of the currently logged-in user.</p>
+<p>Returns a JSON response with the username.</p>
+</section>
+<section id="get-download-path-path">
+<h3>GET /download/&lt;path:path&gt;<a class="headerlink" href="#get-download-path-path" title="Permalink to this heading">¶</a></h3>
+<p>Downloads a file with the specified path for the currently logged-in user.</p>
+</section>
+<section id="get-checksum-path-name">
+<h3>GET /checksum/&lt;path:name&gt;<a class="headerlink" href="#get-checksum-path-name" title="Permalink to this heading">¶</a></h3>
+<p>Retrieves the checksum of a file with the specified name for the currently logged-in user.</p>
+<p>Returns a JSON response with the checksum.</p>
+</section>
+<section id="get-export">
+<h3>GET /export<a class="headerlink" href="#get-export" title="Permalink to this heading">¶</a></h3>
+<p>Exports the database to a file named <code class="docutils literal notranslate"><span class="pre">files.sql</span></code>.</p>
+</section>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this heading">¶</a></h2>
+<p>The Flask application handles the following error cases:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code>: The requested resource is not found.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code>: Access to the resource is forbidden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></code>: The request is malformed or missing required parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">500</span> <span class="pre">Internal</span> <span class="pre">Server</span> <span class="pre">Error</span></code>: An unexpected error occurred.</p></li>
+</ul>
+</section>
+<section id="development-server">
+<h2>Development Server<a class="headerlink" href="#development-server" title="Permalink to this heading">¶</a></h2>
+<p>To run the Flask application in development mode, use the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>flask<span class="w"> </span>run
+</pre></div>
+</div>
+<p>The application will be available at <a class="reference external" href="http://localhost:5000">http://localhost:5000</a>.</p>
+</section>
+<section id="production-deployment">
+<h2>Production Deployment<a class="headerlink" href="#production-deployment" title="Permalink to this heading">¶</a></h2>
+<p>To deploy the Flask application in a production environment, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Configure a web server (e.g., Nginx) to proxy requests to the Flask application.</p></li>
+<li><p>Use a production-grade WSGI server to serve the Flask application.</p></li>
+</ol>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PD_PRO_JACH_JAWORSKI</a></h1>
+
+
+
+
+
+
+
+
+<h3>Nawigacja</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flask server documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#routes">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-server">Development Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#production-deployment">Production Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">Python GUI Application Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="poprzedni rozdział">Welcome to SYSTEM DO WYMIANY PLIKÓW Z WYKORZYSTANIEM JĘZYKA PYTHON’s documentation!</a></li>
+      <li>Next: <a href="client.html" title="następny rozdział">Python GUI Application Documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Szybkie wyszukiwanie</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Szukaj" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Patryk Jaworski, Jakub Jach.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/main.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

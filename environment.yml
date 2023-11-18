@@ -1,0 +1,11 @@
+name: PD_PRO
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - cryptography
+  - ipykernel
+  - numba
+  - flask
+  - flask-session
+  - requests

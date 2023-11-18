@@ -1,0 +1,31 @@
+# Pliki z certyfikatami SSL i kluczem
+*.crt
+*.key
+
+# Sesja flask
+flask_session/
+
+# Cache runtime Pythona
+__pycache__/
+
+# Tokeny
+.token
+
+# Pliki .bin (do testów szyfrowania itd.)
+*.bin
+
+# Pliki bazy danych
+*.db
+
+# Pliki do analizy sonarqube lokalnie
+.sonartoken
+analyze-sonar.*
+.scannerwork/
+
+# Ignorowanie nowych plików w uploads
+uploads/
+
+# Wyeksportowana baza danych dla plików
+files.sql
+config
+.vscode/

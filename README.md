@@ -1,4 +1,6 @@
-Repozytorium dla projektu "<i>System do wymiany plików z wykorzystaniem języka Python</i>".
+Repozytorium dla projektu "<i>System do wymiany plików z wykorzystaniem języka Python</i>". 
+
+Wykorzystano technologie takie jak Flask i TKinter
 
 # Historia zmian widoczna poniżej:
 ## 04.04.2023
